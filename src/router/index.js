@@ -40,7 +40,7 @@ export default [{
   path: '/',
   name: '首页',
   component: Index,
-  // redirect: 'assetsView',
+  redirect: 'assetsView',
   beforeEnter: (to, from, next) => {
     if (cookie.hasCookie()) {
       next()

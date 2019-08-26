@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="left-box">
     <p class="header-logo"
        :style="{width: isExpand ? '225px' : '44px'}">
       <img src="@/assets/images/logo.png"
@@ -242,50 +242,52 @@ export default {
 </script>
 
 <style scoped lang="less">
-.header-logo {
-  transition: all 0.3s;
-  box-sizing: border-box;
-  text-align: left;
-  padding-left: 12px;
-  overflow: hidden;
-  height: 66px;
-  line-height: 66px;
-  img {
-    display: inline-block;
-    width: 21px;
-    height: 22px;
-    vertical-align: middle;
-  }
-  .sys_title {
-    display: inline-block;
-    color: #fff;
-    font-size: 21px;
-    vertical-align: middle;
-  }
-  .toggle-left-nav-btn {
-    position: absolute;
-    top: 0px;
-  }
-}
-.fixed-sidebar-left {
+.left-box {
   height: 100%;
-  position: relative;
-  box-sizing: border-box;
-  transition: all 0.3s;
-  &.expand {
-    width: 225px;
+  .header-logo {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    text-align: left;
+    padding-left: 12px;
+    overflow: hidden;
+    height: 66px;
+    line-height: 66px;
+    img {
+      display: inline-block;
+      width: 21px;
+      height: 22px;
+      vertical-align: middle;
+    }
+    .sys_title {
+      display: inline-block;
+      color: #fff;
+      font-size: 21px;
+      vertical-align: middle;
+    }
+    .toggle-left-nav-btn {
+      position: absolute;
+      top: 0px;
+    }
   }
-  &.not-expand {
-    width: 44px;
-  }
-  span.custom-tree-node {
-    height: 50px;
-    line-height: 50px;
-    cursor: pointer;
-    i {
-      margin: 0 15px;
-      font-size: 16px;
-      font-weight: 500;
+  .fixed-sidebar-left {
+    height: calc(100% - 66px);
+    box-sizing: border-box;
+    transition: all 0.3s;
+    &.expand {
+      width: 225px;
+    }
+    &.not-expand {
+      width: 44px;
+    }
+    span.custom-tree-node {
+      height: 50px;
+      line-height: 50px;
+      cursor: pointer;
+      i {
+        margin: 0 15px;
+        font-size: 16px;
+        font-weight: 500;
+      }
     }
   }
 }

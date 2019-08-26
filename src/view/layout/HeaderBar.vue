@@ -53,7 +53,6 @@ export default {
 .header-bar {
   width: 100%;
   height: 66px !important;
-  background: #212121;
 }
 .header-operations {
   float: right;

@@ -876,9 +876,14 @@ code {
   font-weight: 600 !important;
 }
 
+/* topBar */
+.header-bar {
+  background: #212121;
+}
+
 /* leftBar */
 .header-logo {
-  background: #212121
+  background: #212121;
 }
 
 .fixed-sidebar-left .el-tree {
@@ -955,4 +960,105 @@ code {
   position: relative;
   top: -3px;
   left: 1px;
+}
+
+/* card-view */
+.card-view {
+  background: #212121;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  box-shadow: none;
+  padding: 15px 15px 0;
+  margin-left: -9px;
+  margin-right: -9px;
+}
+
+.card-view.panel>.panel-heading {
+  border: none;
+  color: inherit;
+  border-radius: 0;
+  margin: -15px -15px 0;
+  padding: 20px 15px;
+}
+
+.card-view.panel>.panel-heading.small-panel-heading {
+  padding: 11px 15px;
+}
+
+.card-view.panel>.panel-heading .head-overlay {
+  background: rgba(255, 255, 255, 0.2) none repeat scroll 0 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.card-view.panel .panel-body {
+  padding: 5px 0 20px;
+}
+
+.card-view.panel.panel-default>.panel-heading {
+  background: transparent;
+}
+
+.card-view.panel.panel-default.border-panel>.panel-heading,
+.card-view.panel.panel-default.panel-tabs>.panel-heading {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-view.panel.panel-default.border-panel .panel-body,
+.card-view.panel.panel-default.panel-tabs .panel-body {
+  padding-top: 20px;
+}
+
+.card-view.panel.panel-default.panel-tabs>.panel-heading {
+  padding-bottom: 0;
+}
+
+.card-view.panel.panel-default.panel-tabs .nav-tabs {
+  border-bottom: none;
+}
+
+.card-view.panel.panel-default.panel-tabs .nav-tabs>li>a {
+  padding: 0 5px 12px;
+  float: left;
+}
+
+.card-view.panel.panel-info .panel-body,
+.card-view.panel.panel-success .panel-body,
+.card-view.panel.panel-warning .panel-body,
+.card-view.panel.panel-danger .panel-body,
+.card-view.panel.panel-primary .panel-body,
+.card-view.panel.panel-inverse .panel-body {
+  padding-top: 20px;
+}
+
+.card-view.panel.fullscreen {
+  height: 100%;
+  left: 0;
+  margin: 0;
+  position: fixed;
+  overflow-y: auto;
+  top: 0;
+  width: 100%;
+  z-index: 1040;
+}
+
+.card-view.panel.fullscreen>.panel-heading .pull-right>a,
+.card-view.panel.fullscreen>.panel-heading .pull-right .dropdown {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card-view.panel.fullscreen>.panel-heading .pull-right>a.full-screen,
+.card-view.panel.fullscreen>.panel-heading .pull-right .dropdown.full-screen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card-view.panel.fullscreen>.panel-heading .pull-right>a.full-screen i.zmdi-fullscreen::before,
+.card-view.panel.fullscreen>.panel-heading .pull-right .dropdown.full-screen i.zmdi-fullscreen::before {
+  content: "\f16c";
 }

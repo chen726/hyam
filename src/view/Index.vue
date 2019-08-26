@@ -3,12 +3,10 @@
     <LeftBar />
     <div class="g-main">
       <HeaderBar />
-      <!-- <div class="main-container"> -->
       <div class="hyam-content">
         <router-view></router-view>
       </div>
       <FooterBar />
-      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -54,6 +52,7 @@ export default {
 // }
 .hyam-content {
   display: flex;
-  flex: 1;
+  flex-grow: 1;
+  margin: 15px;
 }
 </style>
