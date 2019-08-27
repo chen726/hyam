@@ -6,6 +6,7 @@ import VueRouter from 'vue-router'
 import routes from './router/index'
 import ELementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import 'bootstrap/dist/css/bootstrap.css'
 import './assets/css/public.css'
 // import './assets/css/style-black.css'
 import './assets/css/font-awesome.min.css'
@@ -20,6 +21,10 @@ import './assets/css/material-design-iconic-font.min.css'
 
 Vue.use(VueRouter)
 Vue.use(ELementUI)
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 const router = new VueRouter({
   routes
 })

@@ -1,16 +1,15 @@
 <template>
-  <div class="g-container m-managebox">
+  <el-container>
     <LeftBar />
-    <div class="g-main">
+    <el-container class="is-vertical">
       <HeaderBar />
-      <div class="hyam-content">
+      <el-main class="main-content newgdt">
         <router-view></router-view>
-      </div>
+      </el-main>
       <FooterBar />
-    </div>
-  </div>
+    </el-container>
+  </el-container>
 </template>
-
 <script>
 import HeaderBar from '@/view/layout/HeaderBar'
 import LeftBar from '@/view/layout/LeftBar'
@@ -33,26 +32,7 @@ export default {
 }
 </script>
 <style scoped lang="less">
-.g-container {
-  width: 100%;
+.el-container {
   height: 100%;
-  overflow-y: auto;
-  display: flex;
-}
-.g-main {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-// .main-container {
-//   display: flex;
-//   flex-direction: column;
-//   width: 100%;
-// }
-.hyam-content {
-  display: flex;
-  flex-grow: 1;
-  margin: 15px;
 }
 </style>

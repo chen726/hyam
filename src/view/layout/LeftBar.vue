@@ -1,5 +1,6 @@
 <template>
-  <div class="left-box">
+  <el-aside class="left-box"
+            :style="{width: isExpand ? '225px' : '44px'}">
     <p class="header-logo"
        :style="{width: isExpand ? '225px' : '44px'}">
       <img src="@/assets/images/logo.png"
@@ -13,14 +14,14 @@
         <i class="zmdi zmdi-menu"></i>
       </a>
     </p>
-    <div class="fixed-sidebar-left"
+    <div class="fixed-sidebar-left slimScrollDiv"
          ref="leftBar"
          @mouseover="handleIn"
          @mouseout="handleOut"
          :class="[isExpand ? 'expand' : 'not-expand']">
       <el-tree ref="tree"
-               :data="data"
-               :props="defaultProps"
+               :data="treeData.data"
+               :props="treeData.defaultProps"
                :highlight-current="true"
                accordion
                @node-click="handleNodeClick"
@@ -34,7 +35,7 @@
         </span>
       </el-tree>
     </div>
-  </div>
+  </el-aside>
 </template>
 
 <script>
@@ -44,166 +45,197 @@ export default {
     return {
       isClose: true,
       isExpand: false,
-      data: [
-        {
-          label: '资产总览',
-          url: '/assetsView',
-          icon: 'ti-layout-grid2'
-        },
-        {
-          label: '硬件资产管理',
-          icon: 'ti-view-list',
-          children: [
-            {
-              id: 21,
-              url: '/inStorage',
-              label: '入库管理',
-              icon: ''
-            },
-            {
-              id: 22,
-              url: '/outStorage',
-              label: '出库管理',
-              icon: ''
-            },
-            {
-              id: 23,
-              url: '/assetsMove',
-              label: '资产转移',
-              icon: ''
-            },
-            {
-              id: 24,
-              url: '/cancelStock',
-              label: '退库管理',
-              icon: ''
-            },
-            {
-              id: 25,
-              url: '/repair',
-              label: '维修管理',
-              icon: ''
-            },
-            {
-              id: 26,
-              url: '/scrap',
-              label: '报废管理',
-              icon: ''
-            }
-          ]
-        },
-        {
-          label: '软件资产管理',
-          icon: 'ti-package',
-          children: [
-            {
-              id: 31,
-              url: '/software',
-              label: '软件资产登记',
-              icon: ''
-            }
-          ]
-        },
-        {
-          label: '合同管理',
-          icon: 'ion ion-ios-filing',
-          children: [
-            {
-              id: 41,
-              url: '/contract',
-              label: '合同管理',
-              icon: ''
-            }
-          ]
-        },
-        {
-          label: '资产盘点',
-          icon: 'ti-pencil-alt',
-          children: [
-            {
-              id: 51,
-              url: '/inventory',
-              label: '资产管理',
-              icon: ''
-            }
-          ]
-        },
-        {
-          label: '报表管理',
-          icon: 'zmdi zmdi-chart',
-          children: [
-            {
-              id: 61,
-              url: '/hardReport',
-              label: '硬件资产汇总表',
-              icon: ''
-            },
-            {
-              id: 62,
-              url: '/softReport',
-              label: '软件资产汇总表',
-              icon: ''
-            },
-            {
-              id: 63,
-              url: '/assetsResume',
-              label: '资产履历',
-              icon: ''
-            },
-            {
-              id: 64,
-              url: '/classifyReport',
-              label: '资产分类汇总表',
-              icon: ''
-            },
-            {
-              id: 65,
-              url: '/assetsReport',
-              label: '部门资产汇总表',
-              icon: ''
-            }
-          ]
-        },
-        {
-          label: '配置管理',
-          icon: 'ti-settings',
-          children: [
-            {
-              id: 71,
-              url: '/userConfig',
-              label: '用户管理',
-              icon: ''
-            },
-            {
-              id: 72,
-              url: '/role',
-              label: '角色管理',
-              icon: ''
-            },
-            {
-              id: 73,
-              url: '/organization',
-              label: '组织架构设置',
-              icon: ''
-            },
-            {
-              id: 74,
-              url: '/classify',
-              label: '资产分类设置',
-              icon: ''
-            },
-            {
-              id: 75,
-              url: '/notice',
-              label: '通知方式设置',
-              icon: ''
-            }
-          ]
+      treeData: {
+        checkedKey: 1,
+        data: [
+          {
+            id: 1,
+            label: '资产总览',
+            isLeaf: true,
+            url: '/assetsView',
+            icon: 'ti-layout-grid2'
+          },
+          {
+            id: 2,
+            label: '硬件资产管理',
+            isLeaf: false,
+            icon: 'ti-view-list',
+            children: [
+              {
+                id: 21,
+                isLeaf: true,
+                url: '/inStorage',
+                label: '入库管理',
+                icon: ''
+              },
+              {
+                id: 22,
+                url: '/outStorage',
+                isLeaf: true,
+                label: '出库管理',
+                icon: ''
+              },
+              {
+                id: 23,
+                url: '/assetsMove',
+                label: '资产转移',
+                isLeaf: true,
+                icon: ''
+              },
+              {
+                id: 24,
+                url: '/cancelStock',
+                label: '退库管理',
+                isLeaf: true,
+                icon: ''
+              },
+              {
+                id: 25,
+                url: '/repair',
+                isLeaf: true,
+                label: '维修管理',
+                icon: ''
+              },
+              {
+                id: 26,
+                url: '/scrap',
+                label: '报废管理',
+                isLeaf: true,
+                icon: ''
+              }
+            ]
+          },
+          {
+            label: '软件资产管理',
+            icon: 'ti-package',
+            isLeaf: false,
+            children: [
+              {
+                id: 31,
+                url: '/software',
+                isLeaf: true,
+                label: '软件资产登记',
+                icon: ''
+              }
+            ]
+          },
+          {
+            label: '合同管理',
+            isLeaf: false,
+            icon: 'ion ion-ios-filing',
+            children: [
+              {
+                id: 41,
+                url: '/contract',
+                isLeaf: true,
+                label: '合同管理',
+                icon: ''
+              }
+            ]
+          },
+          {
+            label: '资产盘点',
+            isLeaf: false,
+            icon: 'ti-pencil-alt',
+            children: [
+              {
+                id: 51,
+                url: '/inventory',
+                isLeaf: true,
+                label: '资产管理',
+                icon: ''
+              }
+            ]
+          },
+          {
+            label: '报表管理',
+            isLeaf: false,
+            icon: 'zmdi zmdi-chart',
+            children: [
+              {
+                id: 61,
+                url: '/hardReport',
+                isLeaf: true,
+                label: '硬件资产汇总表',
+                icon: ''
+              },
+              {
+                id: 62,
+                url: '/softReport',
+                isLeaf: true,
+                label: '软件资产汇总表',
+                icon: ''
+              },
+              {
+                id: 63,
+                url: '/assetsResume',
+                isLeaf: true,
+                label: '资产履历',
+                icon: ''
+              },
+              {
+                id: 64,
+                url: '/classifyReport',
+                label: '资产分类汇总表',
+                isLeaf: true,
+                icon: ''
+              },
+              {
+                id: 65,
+                url: '/assetsReport',
+                isLeaf: true,
+                label: '部门资产汇总表',
+                icon: ''
+              }
+            ]
+          },
+          {
+            label: '配置管理',
+            isLeaf: false,
+            icon: 'ti-settings',
+            children: [
+              {
+                id: 71,
+                url: '/userConfig',
+                isLeaf: true,
+                label: '用户管理',
+                icon: ''
+              },
+              {
+                id: 72,
+                url: '/role',
+                isLeaf: true,
+                label: '角色管理',
+                icon: ''
+              },
+              {
+                id: 73,
+                url: '/organization',
+                isLeaf: true,
+                label: '组织架构设置',
+                icon: ''
+              },
+              {
+                id: 74,
+                url: '/classify',
+                isLeaf: true,
+                label: '资产分类设置',
+                icon: ''
+              },
+              {
+                id: 75,
+                url: '/notice',
+                isLeaf: true,
+                label: '通知方式设置',
+                icon: ''
+              }
+            ]
+          }
+        ],
+        defaultProps: {
+          children: 'children',
+          label: 'label'
         }
-      ],
-      defaultProps: {
-        children: 'children',
-        label: 'label'
       }
     }
   },
@@ -213,8 +245,10 @@ export default {
     }
   },
   created () {
+    this.$nextTick(() => {
+      this.$refs.tree.setCurrentKey(this.treeData.checkedKey) // treeBox 元素的ref   value 绑定的node-key
+    })
     // let data = {}
-    console.log(12)
     // fetch('/admin/hydo/topo/net/get_network_relation', data, function (res) {
     //   console.log(res)
     // })
@@ -245,7 +279,6 @@ export default {
 .left-box {
   height: 100%;
   .header-logo {
-    transition: all 0.3s;
     box-sizing: border-box;
     text-align: left;
     padding-left: 12px;
@@ -271,6 +304,7 @@ export default {
   }
   .fixed-sidebar-left {
     height: calc(100% - 66px);
+    overflow-y: auto;
     box-sizing: border-box;
     transition: all 0.3s;
     &.expand {

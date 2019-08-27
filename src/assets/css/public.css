@@ -876,6 +876,31 @@ code {
   font-weight: 600 !important;
 }
 
+/** 溢出滚动条 **/
+.newgdt::-webkit-scrollbar-track,
+.table-responsive::-webkit-scrollbar-track {
+  border-radius: 2px;
+  background-color: #aeaeae;
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, .3);
+  -moz-box-shadow: inset 0 0 1px rgba(0, 0, 0, .3);
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, .3);
+  -o-box-shadow: inset 0 0 1px rgba(0, 0, 0, .3)
+}
+
+.newgdt::-webkit-scrollbar,
+.table-responsive::-webkit-scrollbar {
+  width: 5px;
+  height: 5px
+}
+
+.newgdt::-webkit-scrollbar-thumb,
+.table-responsive::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background: #4b4b4b
+}
+
+/** 溢出滚动条 **/
+
 /* topBar */
 .header-bar {
   background: #212121;
@@ -886,11 +911,13 @@ code {
   background: #212121;
 }
 
-.fixed-sidebar-left .el-tree {
+.fixed-sidebar-left {
   background-color: #2a2a2a;
+}
+
+.fixed-sidebar-left .el-tree {
+  background-color: transparent;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
   box-sizing: border-box;
   color: #efefef;
 }
@@ -962,103 +989,64 @@ code {
   left: 1px;
 }
 
-/* card-view */
-.card-view {
+/* content */
+.main-content {
   background: #212121;
-  margin-bottom: 12px;
+  margin: 15px;
+  padding: 15px;
+  text-align: left;
+  margin-bottom: 0px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-  box-shadow: none;
-  padding: 15px 15px 0;
-  margin-left: -9px;
-  margin-right: -9px;
 }
 
-.card-view.panel>.panel-heading {
-  border: none;
-  color: inherit;
-  border-radius: 0;
-  margin: -15px -15px 0;
-  padding: 20px 15px;
+.el-col-2,
+.el-col-4,
+.el-col-6,
+.el-col-8,
+.el-col-10,
+.el-col-12,
+.el-col-14,
+.el-col-16,
+.el-col-18,
+.el-col-20,
+.el-col-22,
+.el-col-24 {
+  padding: 5px;
 }
 
-.card-view.panel>.panel-heading.small-panel-heading {
-  padding: 11px 15px;
+.el-card {
+  color: #fff;
+  background: #2a2a2a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.card-view.panel>.panel-heading .head-overlay {
-  background: rgba(255, 255, 255, 0.2) none repeat scroll 0 0;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
+.el-table th,
+.el-table tr {
+  color: #fff;
+  background: #2a2a2a;
 }
 
-.card-view.panel .panel-body {
-  padding: 5px 0 20px;
-}
-
-.card-view.panel.panel-default>.panel-heading {
-  background: transparent;
-}
-
-.card-view.panel.panel-default.border-panel>.panel-heading,
-.card-view.panel.panel-default.panel-tabs>.panel-heading {
+.el-table td,
+.el-table th.is-leaf {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.card-view.panel.panel-default.border-panel .panel-body,
-.card-view.panel.panel-default.panel-tabs .panel-body {
-  padding-top: 20px;
+.el-table--enable-row-hover .el-table__body tr:hover>td {
+  background: rgba(220, 220, 220, 0.08)
 }
 
-.card-view.panel.panel-default.panel-tabs>.panel-heading {
-  padding-bottom: 0;
+.el-table--border::after,
+.el-table--group::after,
+.el-table::before {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.card-view.panel.panel-default.panel-tabs .nav-tabs {
-  border-bottom: none;
+h5 {
+  font-size: 18px;
+  line-height: 26px;
+  text-transform: capitalize;
 }
 
-.card-view.panel.panel-default.panel-tabs .nav-tabs>li>a {
-  padding: 0 5px 12px;
-  float: left;
-}
-
-.card-view.panel.panel-info .panel-body,
-.card-view.panel.panel-success .panel-body,
-.card-view.panel.panel-warning .panel-body,
-.card-view.panel.panel-danger .panel-body,
-.card-view.panel.panel-primary .panel-body,
-.card-view.panel.panel-inverse .panel-body {
-  padding-top: 20px;
-}
-
-.card-view.panel.fullscreen {
-  height: 100%;
-  left: 0;
-  margin: 0;
-  position: fixed;
-  overflow-y: auto;
-  top: 0;
-  width: 100%;
-  z-index: 1040;
-}
-
-.card-view.panel.fullscreen>.panel-heading .pull-right>a,
-.card-view.panel.fullscreen>.panel-heading .pull-right .dropdown {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.card-view.panel.fullscreen>.panel-heading .pull-right>a.full-screen,
-.card-view.panel.fullscreen>.panel-heading .pull-right .dropdown.full-screen {
-  opacity: 1;
-  visibility: visible;
-}
-
-.card-view.panel.fullscreen>.panel-heading .pull-right>a.full-screen i.zmdi-fullscreen::before,
-.card-view.panel.fullscreen>.panel-heading .pull-right .dropdown.full-screen i.zmdi-fullscreen::before {
-  content: "\f16c";
+hr.light-grey-hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
