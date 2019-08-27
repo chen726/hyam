@@ -1041,6 +1041,15 @@ code {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+.el-input__inner {
+  background: #2a2a2a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.el-button--primary{
+  background: #0f4fa8;
+  border: 1px solid #0f4fa8;
+}
+
 h5 {
   font-size: 18px;
   line-height: 26px;
